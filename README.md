@@ -14,8 +14,8 @@ This project is based on the Human Activity Recognition (HAR) data set. The abst
 ### This repository contains the following files:
 
 * 'run_analysis.R': Used for data processing - downloading, unzipping, loading data into data frames...
-* 'CodeBook.md': contains further explanation of the journey to get to the point of clean/tidy data
-+ 'README.md': contains description of how the run_analysis.R script works
+* 'CodeBook.md': Contains further explanation of the journey to get to the point of clean/tidy data
++ 'README.md': Contains description of how the run_analysis.R script works
 
 
 The run_analysis.R script downloads and saves the data to the /data directory (creates one if it does not exist yet).
@@ -39,20 +39,20 @@ combinedDataset <- rbind(testDataset, trainingDataset)
 
 #### Note:
 
-1. *ActivityLabels, *Subjects, and * Dataset are the data frames created when read.table() was used to load the data from the unzipped files.
+1. _*ActivityLabels_, _*Subjects_, and _*Dataset_ are the data frames created when _read.table()_ was used to load the data from the unzipped files.
 2. Each new data frame has the rows of the train data frame after the rows of the test dataframe.
 
 
-The features.txt file contains the column names (features) for the combinedDataset data frame shown above. Using this knowledge, the column headers are filtered to only those having "mean" or "std" in their name.
-Subsetting the data frame for the matched columns creates a new data frame usefulCombinedDataset.
+The _features.txt_ file contains the column names (features) for the _combinedDataset_ data frame shown above. Using this knowledge, the column names are filtered down to only those having "mean" or "std" in their name.
+Subsetting the data frame for the matched columns creates a new data frame _usefulCombinedDataset_.
 
-The data from the data frames combinedActivityLabels and combinedSubjects is used to add two more columns to the data frame usefulCombinedDataset. This makes sense because each row in usefulCombinedDataset is for a particular subject carrying out a particular activity.
+The data from the data frames _combinedActivityLabels_ and _combinedSubjects_ is used to add two more columns to the data frame _usefulCombinedDataset_. This makes sense because each row in _usefulCombinedDataset_ is for a particular subject carrying out a particular activity.
 
-Using the "dplyr" R package, the usefulCombinedDataset data frame is grouped by activity, then subject. With this grouping, a summary is done on every column but the last two (since they are the grouping factors) so as to get the average of all the columns.
-In this particular case, I create a data frame called aggregatedSummary and setting that to the summary statistics (average or mean) of only the first column in usefulCombinedDataset. I then used a for loop to do the same thing for every column (variable) in usefulCombinedDataset but the last two.
+Using the "dplyr" R package, the _usefulCombinedDataset_ data frame is grouped by _activity_, then _subject_. With this grouping, a summary is done on every column but the last two (since they are the grouping factors) so as to get the average of all the columns.
+In this particular case, I created a data frame called _aggregatedSummary_ and setting that to the summary statistics (average or mean) of only the first column in _usefulCombinedDataset_. I then used a _for loop_ to do the same thing for every column (feature) in _usefulCombinedDataset_ but the last two.
 
-To finish tidying up the data, I also chose to use column names with the pattern avgf1, avgf2, instead of V1, V2 that was autoassigned when the data was loaded from file. This reads "average for feature ...?number". This choice was done simply to reference the data from the features.txt file that had the feature (column) names.
-It does not pay to redo something that already works well so keeping the original column names and referencing them by their number makes it easy to know that avgf44 is the "average for feaure 44". Looking at the featues data gives us "tGravityAcc-std()-X".
+To finish tidying up the data, I also chose to use column names with the pattern _avgf1_, _avgf2_, instead of _V1_, _V2_ that was autoassigned when the data was loaded from file. This reads __"average for feature ...?number"__. This choice was done simply to reference the data from the _features.txt_ file that had the features (column names).
+It does not pay to redo something that already works well so keeping the original column names and referencing them by their number makes it easy to know that _avgf44_, for example, is the __"average for feaure 44"__. Looking at the featues data gives us _"tGravityAcc-std()-X"_ for feature number 44.
 
 
 

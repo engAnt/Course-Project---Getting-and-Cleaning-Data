@@ -3,8 +3,8 @@
 
 ### dowloand and unzip
 
-* dataUrl - the url of the zipped data and the first argument to download.file()
-- zippedFilePath  - file name to save the downloaded zipped file as. This is passed as the "destfile" argument to download.file() and the "zipfile" argument to unzip()
+* dataUrl - the url of the zipped data and the first argument to _download.file()_
+- zippedFilePath  - file name to save the downloaded zipped file as. This is passed as the _destfile_ argument to _download.file()_ and the _zipfile_ argument to _unzip()_
 + dateDownloaded - date download occurred
 * unzippedDataPath - directory containing unzipped data files and folders
 
@@ -16,7 +16,7 @@
 * trainingActivityLabels - data frame for activity number references for train data
 + trainingDataset - data frame for train data set
 - trainingSubjects - data frame for subject refences for train data
-* activityLabelRef - data frame holding the activities and their number refernces (1 refers to "WALKING"
+* activityLabelRef - data frame holding the activities and their number refernces (e.g. 1 == "WALKING")
 + features - data frame for the features (column names) and their number refences
 
 
