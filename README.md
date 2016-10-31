@@ -11,11 +11,11 @@ This project is based on the Human Activity Recognition (HAR) data set. The abst
 
 
 
- This repository contains the following files:
- 
- * 'run_analysis.R': Used for data processing - downloading, unzipping, loading data into data frames...
- * 'CodeBook.md': contains further explanation of the journey to get to the point of clean/tidy data
- + 'README.md': contains description of how the run_analysis.R script works
+This repository contains the following files:
+
+* 'run_analysis.R': Used for data processing - downloading, unzipping, loading data into data frames...
+* 'CodeBook.md': contains further explanation of the journey to get to the point of clean/tidy data
++ 'README.md': contains description of how the run_analysis.R script works
 
 
 The run_analysis.R script downloads and saves the data to the /data directory (creates one if it does not exist yet).

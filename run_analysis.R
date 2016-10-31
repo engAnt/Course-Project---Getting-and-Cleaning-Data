@@ -67,7 +67,3 @@ names(aggregatedSummary)[4:81] <- sub("V", "avgf", names(groupByActivitySubject)
 write.table(aggregatedSummary, file = "./data/TidyData_HARaverages.txt", row.names = FALSE)
 
 
-
-# .../add documentation to code book and README
-# .../create git repo (ignore "./data" directory and file submitted to course page)
-
