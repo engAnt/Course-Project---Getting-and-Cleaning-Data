@@ -11,7 +11,7 @@ This project is based on the Human Activity Recognition (HAR) data set. The abst
 
 
 
-This repository contains the following files:
+###This repository contains the following files:
 
 * 'run_analysis.R': Used for data processing - downloading, unzipping, loading data into data frames...
 * 'CodeBook.md': contains further explanation of the journey to get to the point of clean/tidy data
@@ -37,9 +37,9 @@ combinedSubjects <- rbind(testSubjects, trainingSubjects)
 combinedDataset <- rbind(testDataset, trainingDataset)
 ```
 
-Note: 
-1. *ActivityLabels, *Subjects, and * Dataset are the data frames created when read.table() was used to load the data from the unzipped files.
-2. Each new data frame has the rows of the train data frame after the rows of the test dataframe.
+####Note: 
+1 ActivityLabels, *Subjects, and * Dataset are the data frames created when read.table() was used to load the data from the unzipped files.
+2 Each new data frame has the rows of the train data frame after the rows of the test dataframe.
 
 
 The features.txt file contains the column names (features) for the combinedDataset data frame shown above. Using this knowledge, the column headers are filtered to only those having "mean" or "std" in their name.
