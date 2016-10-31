@@ -37,9 +37,10 @@ combinedSubjects <- rbind(testSubjects, trainingSubjects)
 combinedDataset <- rbind(testDataset, trainingDataset)
 ```
 
-#### Note: 
-1 ActivityLabels, *Subjects, and * Dataset are the data frames created when read.table() was used to load the data from the unzipped files.
-2 Each new data frame has the rows of the train data frame after the rows of the test dataframe.
+#### Note:
+
+1. *ActivityLabels, *Subjects, and * Dataset are the data frames created when read.table() was used to load the data from the unzipped files.
+2. Each new data frame has the rows of the train data frame after the rows of the test dataframe.
 
 
 The features.txt file contains the column names (features) for the combinedDataset data frame shown above. Using this knowledge, the column headers are filtered to only those having "mean" or "std" in their name.
@@ -50,7 +51,7 @@ The data from the data frames combinedActivityLabels and combinedSubjects is use
 Using the "dplyr" R package, the usefulCombinedDataset data frame is grouped by activity, then subject. With this grouping, a summary is done on every column but the last two (since they are the grouping factors) so as to get the average of all the columns.
 In this particular case, I create a data frame called aggregatedSummary and setting that to the summary statistics (average or mean) of only the first column in usefulCombinedDataset. I then used a for loop to do the same thing for every column (variable) in usefulCombinedDataset but the last two.
 
-To finish tidying up the data, I also chose to use column names with the pattern avgf1, avgf2, instead of V1, V2 that was autoassigned when the data was loaded from file. This reads "average for feature <number>". This choice was done simply to reference the data from the features.txt file that had the feature (column) names.
+To finish tidying up the data, I also chose to use column names with the pattern avgf1, avgf2, instead of V1, V2 that was autoassigned when the data was loaded from file. This reads "average for feature ...?number". This choice was done simply to reference the data from the features.txt file that had the feature (column) names.
 It does not pay to redo something that already works well so keeping the original column names and referencing them by their number makes it easy to know that avgf44 is the "average for feaure 44". Looking at the featues data gives us "tGravityAcc-std()-X".
 
 
