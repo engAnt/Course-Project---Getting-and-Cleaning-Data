@@ -53,13 +53,9 @@ subject <- as.factor(combinedSubjects[,1])
 usefulCombinedDataset <- cbind( usefulCombinedDataset, activity, subject )
 
 # group by activity, then subject
-groupByActivitySubject <- dplyr::group_by(usefulCombinedDataset, activity, subject)
-aggregatedSummary <- dplyr::summarize(groupByActivitySubject, avgf1 = mean(V1, na.rm = TRUE))
-for (col in groupByActivitySubject[, 2:79]) {
-     tmp_summary <- dplyr::summarize(groupByActivitySubject, mean(col, na.rm = TRUE))
-     aggregatedSummary <- cbind(aggregatedSummary, tmp_summary[, 3])
-}
-names(aggregatedSummary)[4:81] <- sub("V", "avgf", names(groupByActivitySubject)[2:79])
+aggregatedSummary <- dplyr::group_by(usefulCombinedDataset, activity, subject) %>%
+     dplyr::summarize_each(funs(mean), 1:79)
+names(aggregatedSummary)[3:81] <- sub("V", "avgf", names(usefulCombinedDataset)[1:79])
 
 
 
@@ -67,3 +63,5 @@ names(aggregatedSummary)[4:81] <- sub("V", "avgf", names(groupByActivitySubject)
 write.table(aggregatedSummary, file = "./data/TidyData_HARaverages.txt", row.names = FALSE)
 
 
+
+      

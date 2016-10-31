@@ -47,8 +47,6 @@ At this point the data frame, usefulCombinedDataset, is updated with the new col
 
 ### group by activity, then subject
 
-* groupByActivitySubject - a data frame with "group by" stage information for grouping by activity, and then subject
-* aggregatedSummary - data frame holding summary statistics (only mean/average inthsi case) for the very first feature
-* tmp_summary (within "for" loop) - holds the summary statistics of all the other columns in usefulCombinedDataset as they are calculated and added to aggregatedSUmmary
+* aggregatedSummary - a data frame as a result of grouping by activity, and then subject, and then using _dplyr_ to generate summary statistics (only mean/average in this case) for all columns in _usefulCombinedDataset_ besides the grouping columns
 
 
